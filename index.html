@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Game of Life - Loadero</title>
+  </head>
+  <body>
+    <canvas id="gridCanvas"></canvas>
+
+    <div id="uiElements">
+      <div id="themes" class="controlsWrapper">
+        <p id="themes-title">Colors</p>
+
+        <button class="chooseColorButton">
+          <input id="bgColorPicker" class="colorpicker-input" type="color" />
+          <div class="currentBgColor"></div>
+          background
+        </button>
+
+        <button class="chooseColorButton">
+          <input
+            id="primaryColorPicker"
+            class="colorpicker-input"
+            type="color"
+          />
+          <div class="currentPrimaryColor"></div>
+          primary
+        </button>
+
+        <button class="chooseColorButton">
+          <input
+            id="secondaryColorPicker"
+            class="colorpicker-input"
+            type="color"
+          />
+          <div class="currentSecondaryColor"></div>
+          secondary
+        </button>
+
+        <button class="chooseColorButton">
+          <input
+            id="accentColorPicker"
+            class="colorpicker-input"
+            type="color"
+          />
+          <div class="currentAccentColor"></div>
+          accent
+        </button>
+
+        <button class="chooseColorButton">
+          <input id="linesColorPicker" class="colorpicker-input" type="color" />
+          <div class="currentGridLineColor"></div>
+          grid lines
+        </button>
+
+        <div class="divider horizontal"></div>
+
+        <div id="themeList">
+          <ul id="themeListMenu" opened="false"></ul>
+          <button id="themeListToggleButton">choose theme</button>
+        </div>
+
+        <div id="saveTheme">
+          <form id="saveThemeMenu" opened="false">
+            <input id="newThemeNameInput" type="text" />
+            <button id="saveNewThemeButton">Save</button>
+          </form>
+          <button id="saveThemeToggleButton">Save current theme</button>
+        </div>
+      </div>
+
+      <div id="playbackControls">
+        <div class="controlsWrapper">
+          <button id="startStop">start</button>
+
+          <button id="clearButton">Clear</button>
+
+          <div id="speed">
+            <div class="menuPositioner">
+              <div id="speedMenu" opened="false">
+                <input
+                  type="range"
+                  min="1"
+                  max="1000"
+                  value="1000"
+                  id="speedSlider"
+                />
+              </div>
+            </div>
+            <button id="speedToggleButton">speed</button>
+          </div>
+
+          <div class="divider vertical"></div>
+
+          <button id="randomize">randomize</button>
+
+          <div id="randomArea">
+            <div class="menuPositioner">
+              <div id="randomAreaMenu" opened="false">
+                <input type="text" required id="randomAreaSize" maxlength="3" />
+              </div>
+            </div>
+            <button id="randomAreaToggleButton">random area</button>
+          </div>
+
+          <div id="randomisationLevel">
+            <div class="menuPositioner">
+              <div id="randomisationLevelMenu" opened="false">
+                <input
+                  type="range"
+                  min="1"
+                  max="100"
+                  id="randomisationLevelSlider"
+                />
+              </div>
+            </div>
+            <button id="randomisationLevelToggleButton">
+              randomisation level
+            </button>
+          </div>
+
+          <div class="divider vertical"></div>
+
+          <div id="history">
+            <div class="menuPositioner">
+              <div id="historyMenu" opened="false">
+                <button id="prev">prev</button>
+
+                <input
+                  type="range"
+                  id="historySlider"
+                  min="0"
+                  max="0"
+                  size="0"
+                  disabled
+                />
+                <button id="next">next</button>
+              </div>
+            </div>
+            <button id="historyToggleButton">history</button>
+          </div>
+
+          <div id="patterns">
+            <div class="menuPositioner">
+              <ul id="gridPatternMenu" opened="false"></ul>
+            </div>
+            <button id="gridPatternToggleButton">patterns</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="zoom" class="controlsWrapper">
+        <button id="zoomin">+</button>
+        <button id="zoomout">-</button>
+      </div>
+
+      <div id="stats" class="controlsWrapper">
+        <p id="population">Population: 0</p>
+        <p id="generation">Generation: 0</p>
+      </div>
+    </div>
+
+    <script src="src/appearence/themes.js"></script>
+    <script src="src/appearence/appearence.js"></script>
+    <script src="src/settings/settings.js"></script>
+    <script src="src/grid/patterns.js"></script>
+    <script src="src/grid/grid.js"></script>
+    <script src="src/game.js"></script>
+  </body>
+</html>
